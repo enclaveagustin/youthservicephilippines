@@ -148,32 +148,106 @@ function saveData(data) {
 
 // ===== AUTHENTICATION =====
 function openLogin() {
-  document.getElementById('loginModal').style.display = 'block';
+  const modal = document.getElementById('loginModal');
+  modal.style.display = 'flex';
   document.body.style.overflow = 'hidden';
+  // Focus on email input
+  setTimeout(() => {
+    const emailInput = document.getElementById('loginEmail');
+    if (emailInput) emailInput.focus();
+  }, 100);
 }
 
 function closeLogin() {
-  document.getElementById('loginModal').style.display = 'none';
+  const modal = document.getElementById('loginModal');
+  modal.style.display = 'none';
   document.body.style.overflow = 'auto';
+  // Clear form
+  const form = document.getElementById('loginForm');
+  if (form) form.reset();
+}
+
+function handleLogin(e) {
+  e.preventDefault();
+  
+  const email = document.getElementById('loginEmail').value.trim();
+  const password = document.getElementById('loginPassword').value;
+  
+  if (!email || !password) {
+    showNotification('Please fill in all fields', 'error');
+    return;
+  }
+  
+  // Simple validation
+  if (email === 'admin@ysp.ph' && password === 'admin123') {
+    login('admin');
+  } else if (email === 'chapter@ysp.ph' && password === 'chapter123') {
+    login('chapter');
+  } else {
+    showNotification('Invalid email or password', 'error');
+  }
+}
+
+function switchTab(tabName) {
+  // Remove active class from all tabs
+  const tabs = document.querySelectorAll('.tab-btn');
+  tabs.forEach(tab => tab.classList.remove('active'));
+  
+  // Add active class to clicked tab
+  event.target.classList.add('active');
+  
+  // Update form hints based on selected tab
+  const emailInput = document.getElementById('loginEmail');
+  const passwordInput = document.getElementById('loginPassword');
+  
+  if (tabName === 'admin') {
+    emailInput.placeholder = 'admin@ysp.ph';
+    emailInput.setAttribute('data-demo', 'admin@ysp.ph');
+    passwordInput.placeholder = 'Enter password';
+    passwordInput.setAttribute('data-demo', 'admin123');
+  } else if (tabName === 'chapter') {
+    emailInput.placeholder = 'chapter@ysp.ph';
+    emailInput.setAttribute('data-demo', 'chapter@ysp.ph');
+    passwordInput.placeholder = 'Enter password';
+    passwordInput.setAttribute('data-demo', 'chapter123');
+  }
+  
+  // Update credential hints display
+  const credBox = document.querySelector('.credentials-box');
+  if (credBox) {
+    if (tabName === 'admin') {
+      credBox.innerHTML = '<p><strong>Admin Account:</strong> <code>admin@ysp.ph</code> / <code>admin123</code></p>';
+    } else {
+      credBox.innerHTML = '<p><strong>Chapter Head Account:</strong> <code>chapter@ysp.ph</code> / <code>chapter123</code></p>';
+    }
+  }
 }
 
 function login(role) {
   const data = getData();
   data.currentUser = role;
+  data.loginTime = new Date().toISOString();
   saveData(data);
+  showNotification(`Welcome, ${role}!`, 'success');
   closeLogin();
-  if (role === 'admin') {
-    window.location.href = 'admin.html';
-  } else if (role === 'chapter') {
-    alert('Chapter Head login: You can now manage your chapter.');
-  }
+  setTimeout(() => {
+    if (role === 'admin') {
+      window.location.href = 'admin.html';
+    } else if (role === 'chapter') {
+      alert('Chapter Head Access: You can now manage your chapter and events.');
+      window.location.href = 'membership.html';
+    }
+  }, 1000);
 }
 
 function logout() {
   const data = getData();
   data.currentUser = null;
   saveData(data);
-  window.location.href = 'index.html';
+  showNotification('Logged out successfully', 'success');
+  setTimeout(() => {
+    window.location.href = 'index.html';
+  }, 1000);
 }
 
 function checkAuth() {

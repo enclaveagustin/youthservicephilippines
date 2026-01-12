@@ -45,12 +45,53 @@
 
 <footer class="site-footer">
   <div class="footer-container">
-    <div class="footer-brand"><img src="assets/images/logo.png" alt="YSP Logo"><p>Empowering youth leaders through service and volunteerism nationwide.</p></div>
+    <div class="footer-brand"><img src="assets/images/logo.svg" alt="YSP Logo" width="50" height="50"><p>Empowering youth leaders through service and volunteerism nationwide.</p></div>
     <div class="footer-links"><h4>Quick Links</h4><a href="index.html">Home</a><a href="programs.html">Programs</a><a href="membership.html">Membership & Chapters</a><a href="volunteer.html">Volunteer</a><a href="contact.html">Contact</a></div>
     <div class="footer-contact"><h4>Contact</h4><p>Email: <a href="mailto:phyouthservice@gmail.com">phyouthservice@gmail.com</a></p><p>Mobile: 0917 779 8413</p><p>Facebook: <a href="https://www.facebook.com/YOUTHSERVICEPHILIPPINES" target="_blank">Youth Service Philippines</a></p></div>
   </div>
   <div class="footer-bottom">© 2025 Youth Service Philippines. All rights reserved.</div>
 </footer>
 
-</body>
-</html>
+<div id="loginModal" class="modal-overlay">
+  <div class="modal-container">
+    <div class="modal-header">
+      <h2 class="modal-title">Sign In to YSP</h2>
+      <button class="modal-close" onclick="closeLogin()">&times;</button>
+    </div>
+    
+    <div class="modal-body">
+      <div class="login-tabs">
+        <button class="tab-btn active" onclick="switchTab('admin')">
+          <span class="tab-icon">👨‍💼</span> Admin
+        </button>
+        <button class="tab-btn" onclick="switchTab('chapter')">
+          <span class="tab-icon">👥</span> Chapter Head
+        </button>
+      </div>
+
+      <form id="loginForm" onsubmit="handleLogin(event)">
+        <div class="form-group">
+          <label for="loginEmail">Email Address</label>
+          <input type="email" id="loginEmail" name="email" placeholder="Enter your email" required>
+          <small class="form-hint" id="emailHint">admin@ysp.ph</small>
+        </div>
+
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" name="password" placeholder="Enter your password" required>
+          <small class="form-hint" id="passHint">admin123</small>
+        </div>
+
+        <button type="submit" class="btn-submit">Sign In</button>
+      </form>
+
+      <div class="login-footer">
+        <p class="text-muted">Demo Credentials:</p>
+        <p><strong>Admin:</strong> admin@ysp.ph / admin123</p>
+        <p><strong>Chapter Head:</strong> chapter@ysp.ph / chapter123</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="notification" class="notification"></div>
