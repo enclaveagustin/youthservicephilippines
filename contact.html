@@ -1,95 +1,194 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact Youth Service Philippines for inquiries and support">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Contact Youth Service Philippines">
+  <link rel="shortcut icon" href="assets/images/favicon.png">
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link href="assets/css/tiny-slider.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
   <title>Contact | Youth Service Philippines</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script defer src="assets/js/main.js"></script>
 </head>
+
 <body>
 
-<header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom border-2 border-warning sticky-top">
-    <div class="container-lg">
-      <a class="navbar-brand fw-bold text-warning" href="index.html">
-        <img src="assets/images/logo.svg" alt="YSP Logo" width="45" height="45" class="d-inline-block align-text-center me-2">Youth Service Philippines
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto gap-1">
-          <li class="nav-item"><a class="nav-link fw-600" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link fw-600" href="programs.html">Programs</a></li>
-          <li class="nav-item"><a class="nav-link fw-600" href="membership.html">Membership</a></li>
-          <li class="nav-item"><a class="nav-link fw-600" href="volunteer.html">Volunteer</a></li>
-          <li class="nav-item"><a class="nav-link fw-600" href="contact.html">Contact</a></li>
-          <li class="nav-item"><button class="btn btn-warning fw-bold" onclick="openLogin()">Sign In</button></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-</header>
-
-<main>
-  <div class="page">
-    <h1 class="section-title">Contact Us</h1>
-    <div class="card">
-      <p>Email: <a href="mailto:phyouthservice@gmail.com">phyouthservice@gmail.com</a></p>
-      <p>Mobile: 0917 779 8413</p>
-      <p>Facebook: <a href="https://www.facebook.com/YOUTHSERVICEPHILIPPINES" target="_blank">Youth Service Philippines</a></p>
+<nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" aria-label="YSP navigation bar">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><img src="assets/images/logo.svg" alt="YSP Logo" width="40" height="40" style="margin-right: 8px;">YSP</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsYSP" aria-controls="navbarsYSP" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsYSP">
+      <ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="programs.html">Programs</a></li>
+        <li class="nav-item"><a class="nav-link" href="membership.html">Membership</a></li>
+        <li class="nav-item"><a class="nav-link" href="volunteer.html">Volunteer</a></li>
+        <li class="nav-item"><a class="nav-link" href="members.html">Members</a></li>
+        <li class="nav-item active"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+      <ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5"><li><a class="nav-link" href="#" onclick="openLogin()">Sign In</a></li></ul>
     </div>
   </div>
-</main>
+</nav>
 
-<footer class="site-footer">
-  <div class="footer-container">
-    <div class="footer-brand"><img src="assets/images/logo.svg" alt="YSP Logo"><p>Empowering youth leaders through service and volunteerism nationwide.</p></div>
-    <div class="footer-links"><h4>Quick Links</h4><a href="index.html">Home</a><a href="programs.html">Programs</a><a href="membership.html">Membership & Chapters</a><a href="volunteer.html">Volunteer</a><a href="contact.html">Contact</a></div>
-    <div class="footer-contact"><h4>Contact</h4><p>Email: <a href="mailto:phyouthservice@gmail.com">phyouthservice@gmail.com</a></p><p>Mobile: 0917 779 8413</p><p>Facebook: <a href="https://www.facebook.com/YOUTHSERVICEPHILIPPINES" target="_blank">Youth Service Philippines</a></p></div>
+<div class="breadcrumb-section">
+  <div class="container">
+    <h1>Contact Us</h1>
+    <p class="text-muted">Get in touch with Youth Service Philippines</p>
   </div>
-  <div class="footer-bottom">© 2025 Youth Service Philippines. All rights reserved.</div>
-</footer>
+</div>
 
-<!-- Login Modal -->
-<div id="loginModal" class="modal-overlay">
-  <div class="modal-container">
-    <div class="modal-header">
-      <h2>Sign In</h2>
-      <button class="modal-close" onclick="closeLogin()">&times;</button>
-    </div>
-    <div class="modal-body">
-      <div class="login-tabs">
-        <button class="tab-btn active" onclick="switchTab('admin')">👨‍💼 Admin</button>
-        <button class="tab-btn" onclick="switchTab('chapter')">👥 Chapter Head</button>
+<div class="ysp-section">
+  <div class="container">
+    <div class="row align-items-center mb-5">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=500&fit=crop&q=85" alt="Contact our team" class="img-fluid rounded shadow" style="max-height: 500px; object-fit: cover;">
       </div>
-      <form id="loginForm" onsubmit="handleLogin(event)">
-        <div class="form-group">
-          <label for="loginEmail">Email Address</label>
-          <input type="email" id="loginEmail" name="email" placeholder="admin@ysp.ph" required>
-          <div class="form-hint">Demo: admin@ysp.ph</div>
+      <div class="col-lg-6">
+        <h2 class="mb-4">We'd Love to Hear From You</h2>
+        <p class="mb-4">Have questions about our programs or want to get involved? Send us a message and we'll respond as soon as possible.</p>
+        <form class="row g-3">
+          <div class="col-md-6"><input type="text" class="form-control" placeholder="Your Name" required></div>
+          <div class="col-md-6"><input type="email" class="form-control" placeholder="Your Email" required></div>
+          <div class="col-12"><input type="text" class="form-control" placeholder="Subject" required></div>
+          <div class="col-12"><textarea class="form-control" rows="5" placeholder="Your Message" required></textarea></div>
+          <div class="col-12"><button type="submit" class="btn btn-primary">Send Message</button></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="background: linear-gradient(135deg, #3b5d50 0%, #2d453f 100%); padding: 60px 0; color: white;">
+  <div class="container">
+    <div class="row text-center mb-5">
+      <div class="col-12">
+        <h2 class="mb-4">Connect With Us</h2>
+        <p class="lead">Multiple ways to reach out and stay connected</p>
+      </div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="text-center p-4">
+          <div style="font-size: 48px; margin-bottom: 15px;"><i class="fas fa-envelope"></i></div>
+          <h4 class="mb-2">Email Us</h4>
+          <p><a href="mailto:phyouthservice@gmail.com" style="color: #fff; text-decoration: none;">phyouthservice@gmail.com</a></p>
+          <small>Respond within 24 hours</small>
         </div>
-        <div class="form-group">
-          <label for="loginPassword">Password</label>
-          <input type="password" id="loginPassword" name="password" placeholder="Enter password" required>
-          <div class="form-hint">Demo: admin123</div>
+      </div>
+      <div class="col-md-4">
+        <div class="text-center p-4">
+          <div style="font-size: 48px; margin-bottom: 15px;"><i class="fas fa-phone"></i></div>
+          <h4 class="mb-2">Call Us</h4>
+          <p><a href="tel:+639177798413" style="color: #fff; text-decoration: none;">0917 779 8413</a></p>
+          <small>Available during business hours</small>
         </div>
-        <button type="submit" class="btn-submit">Sign In</button>
-      </form>
-      <div class="login-footer">
-        <h4>Demo Credentials</h4>
-        <div class="credentials-box">
-          <p><strong>Admin Account:</strong> <code>admin@ysp.ph</code> / <code>admin123</code></p>
-        </div>
-        <div class="credentials-box" style="background: #dbeafe; border-left-color: #3b82f6;">
-          <p><strong>Chapter Head Account:</strong> <code>chapter@ysp.ph</code> / <code>chapter123</code></p>
+      </div>
+      <div class="col-md-4">
+        <div class="text-center p-4">
+          <div style="font-size: 48px; margin-bottom: 15px;"><i class="fab fa-facebook"></i></div>
+          <h4 class="mb-2">Follow Us</h4>
+          <p><a href="https://www.facebook.com/YOUTHSERVICEPHILIPPINES" target="_blank" style="color: #fff; text-decoration: none;">Youth Service Philippines</a></p>
+          <small>Message us on Facebook</small>
         </div>
       </div>
     </div>
   </div>
 </div>
-</html>
+
+<div class="ysp-section">
+  <div class="container">
+    <h2 class="text-center mb-5">Our Locations</h2>
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="card h-100 shadow-sm">
+          <img src="https://images.unsplash.com/photo-1517457373614-b7152f800bb1?w=500&h=350&fit=crop&q=85" alt="Main Office" class="card-img-top" style="height: 250px; object-fit: cover;">
+          <div class="card-body">
+            <h5 class="card-title">Main Office</h5>
+            <p class="card-text">Visit our headquarters to discuss programs and partnerships.</p>
+            <p class="mb-0"><i class="fas fa-map-marker-alt" style="color: #3b5d50;"></i> Metro Manila, Philippines</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100 shadow-sm">
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=350&fit=crop&q=85" alt="Community Center" class="card-img-top" style="height: 250px; object-fit: cover;">
+          <div class="card-body">
+            <h5 class="card-title">Community Center</h5>
+            <p class="card-text">Join us for events, training, and volunteer activities.</p>
+            <p class="mb-0"><i class="fas fa-map-marker-alt" style="color: #3b5d50;"></i> Regional Chapters Nationwide</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="background-color: #f8f9f7; padding: 40px 0;">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <h3 class="mb-3">Frequently Asked Questions</h3>
+        <div class="accordion" id="faqAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">How can I volunteer?</button></h2>
+            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion"><div class="accordion-body">Visit our Volunteer page to see available opportunities and sign up for programs that match your interests.</div></div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">What programs do you offer?</button></h2>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">We offer Community Outreach, Youth Leadership Training, Environmental Conservation, and Disaster Relief programs.</div></div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">How do I join a chapter?</button></h2>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">Go to the Membership page to explore chapters near you and submit your application.</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=500&fit=crop&q=85" alt="FAQ Support" class="img-fluid rounded shadow" style="max-height: 450px; object-fit: cover;">
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer-section">
+  <div class="container relative">
+    <div class="row g-5 mb-5">
+      <div class="col-lg-4">
+        <div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">YSP<span>.</span></a></div>
+        <p class="mb-4">Empowering youth through service and volunteerism nationwide.</p>
+      </div>
+      <div class="col-lg-8">
+        <div class="row links-wrap">
+          <div class="col-6 col-md-3"><ul class="list-unstyled"><li><a href="index.html">Home</a></li><li><a href="programs.html">Programs</a></li></ul></div>
+          <div class="col-6 col-md-3"><ul class="list-unstyled"><li><a href="membership.html">Membership</a></li><li><a href="volunteer.html">Volunteer</a></li></ul></div>
+          <div class="col-6 col-md-3"><ul class="list-unstyled"><li><a href="#">Privacy</a></li><li><a href="#">Terms</a></li></ul></div>
+          <div class="col-6 col-md-3"><ul class="list-unstyled"><li><a href="#">FAQ</a></li></ul></div>
+        </div>
+      </div>
+    </div>
+    <div class="border-top copyright"><div class="row pt-4"><div class="col-lg-6"><p class="mb-2">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. Youth Service Philippines</p></div></div></div>
+  </div>
+</footer>
+
+<div id="loginModal" class="modal-overlay">
+  <div class="modal-container">
+    <div class="modal-header"><h2>Sign In</h2><button class="modal-close" onclick="closeLogin()">&times;</button></div>
+    <div class="modal-body">
+      <form id="loginForm" onsubmit="handleLogin(event)">
+        <div class="form-group"><input type="email" id="loginEmail" required></div>
+        <div class="form-group"><input type="password" id="loginPassword" required></div>
+        <button type="submit" class="btn-submit">Sign In</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div id="notification" class="notification"></div>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/custom.js"></script>
+<script defer src="assets/js/main.js"></script>
+</body></html>
