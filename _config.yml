@@ -1,0 +1,50 @@
+# GitHub Pages Jekyll Configuration
+title: Youth Service Philippines
+description: Developing Youth Leaders Through Service, Compassion, and Community Engagement
+url: https://enclaveagustin.github.io
+baseurl: /youthservicephilippines
+lang: en
+
+# Build settings
+markdown: kramdown
+theme: jekyll-theme-slate
+
+# Exclude files from GitHub Pages processing
+exclude:
+  - node_modules/
+  - package*.json
+  - yarn.lock
+  - .git/
+  - .gitignore
+  - README.md
+  - LICENSE
+
+# Include dotfiles
+include:
+  - .nojekyll
+
+# GitHub Pages settings
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# SEO and metadata
+twitter:
+  username: youthserviceph
+  card: summary_large_image
+
+og:
+  image: /youthservicephilippines/assets/images/logo.svg
+  type: website
+
+# Timezone
+timezone: Asia/Manila
+
+# Future posts
+future: false
+
+# Collections
+collections:
+  pages:
+    output: true
+    permalink: /:path/
