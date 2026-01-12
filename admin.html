@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Dashboard | YSP</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="main.js"></script>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <div class="logo"><img src="logo.png" alt="YSP Logo">YSP Admin</div>
+    <button class="btn" onclick="logout()">Logout</button>
+  </div>
+</header>
+
+<main>
+  <div class="page">
+
+    <!-- Update Stats -->
+    <div class="card">
+      <h3>Update Stats</h3>
+      <input id="sprojects" placeholder="Projects">
+      <input id="smembers" placeholder="Members">
+      <button onclick="updateStats()">Save Stats</button>
+    </div>
+
+    <!-- Add Program -->
+    <div class="card">
+      <h3>Add Program</h3>
+      <input id="ptitle" placeholder="Program Title">
+      <textarea id="pdesc" placeholder="Description"></textarea>
+      <input id="pimg" placeholder="Image URL or path">
+      <button onclick="addProgram()">Add Program</button>
+    </div>
+
+    <!-- Add Chapter -->
+    <div class="card">
+      <h3>Add Chapter</h3>
+      <input id="cname" placeholder="Chapter Name">
+      <button onclick="addChapter()">Add Chapter</button>
+    </div>
+
+    <!-- Update Contact -->
+    <div class="card">
+      <h3>Update Contact Info</h3>
+      <input id="cemail" placeholder="Email">
+      <input id="cmobile" placeholder="Mobile">
+      <input id="cfacebook" placeholder="Facebook URL">
+      <button onclick="updateContact()">Update Contact</button>
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-brand"><img src="logo.png" alt="YSP Logo"><p>Admin Dashboard – Youth Service Philippines</p></div>
+    <div class="footer-links"><h4>Quick Links</h4><a href="index.html">Home</a><a href="programs.html">Programs</a><a href="membership.html">Membership & Chapters</a><a href="volunteer.html">Volunteer</a><a href="contact.html">Contact</a></div>
+    <div class="footer-contact"><h4>Contact</h4><p>Email: <a href="mailto:phyouthservice@gmail.com">phyouthservice@gmail.com</a></p><p>Mobile: 0917 779 8413</p><p>Facebook: <a href="https://www.facebook.com/YOUTHSERVICEPHILIPPINES" target="_blank">Youth Service Philippines</a></p></div>
+  </div>
+  <div class="footer-bottom">© 2025 Youth Service Philippines. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
