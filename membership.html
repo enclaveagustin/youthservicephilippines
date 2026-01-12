@@ -1,22 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Membership</title>
-<link rel="stylesheet" href="style.css">
-<script defer src="main.js"></script>
+  <title>Membership | Youth Service Philippines</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="assets/js/main.js"></script>
 </head>
 <body>
 
-<header class="simple-header">
-  <a href="index.html">← Back</a>
+<header>
+  <div class="navbar">
+    <div class="logo"><img src="assets/images/logo.png" alt="YSP Logo">Youth Service Philippines</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="programs.html">Programs</a>
+      <a href="membership.html">Membership & Chapters</a>
+      <a href="volunteer.html">Volunteer</a>
+      <a href="contact.html">Contact</a>
+      <a onclick="openLogin()">Sign In</a>
+    </nav>
+  </div>
 </header>
 
-<main class="page">
-  <h1 class="section-title">Chapters</h1>
-  <div class="card">
+<main>
+  <div class="page">
+    <h1 class="section-title">Membership & Chapters</h1>
+
+    <div class="card">
+      <h3>Join as a Member</h3>
+      <p>Open to youth volunteers nationwide. Fill out the form below:</p>
+      <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdwMKgIjQNrlLH-j-Qdx0MrKxefxaLRC6gMI_oOgMTosDi_sQ/viewform" target="_blank">Apply Here</a>
+    </div>
+
+    <div class="card">
+      <h3>Create a Chapter</h3>
+      <p>Start a new chapter in your city. Fill out this form. You will be contacted once approved.</p>
+      <a class="btn" href="https://forms.gle/cWPsgBJKLaQoLuUr8" target="_blank">Create Chapter</a>
+    </div>
+
+    <h2 class="section-title">Existing Chapters</h2>
     <ul id="chapterList"></ul>
   </div>
 </main>
+
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-brand"><img src="assets/images/logo.png" alt="YSP Logo"><p>Empowering youth leaders through service and volunteerism nationwide.</p></div>
+    <div class="footer-links"><h4>Quick Links</h4><a href="index.html">Home</a><a href="programs.html">Programs</a><a href="membership.html">Membership & Chapters</a><a href="volunteer.html">Volunteer</a><a href="contact.html">Contact</a></div>
+    <div class="footer-contact"><h4>Contact</h4><p>Email: <a href="mailto:phyouthservice@gmail.com">phyouthservice@gmail.com</a></p><p>Mobile: 0917 779 8413</p><p>Facebook: <a href="https://www.facebook.com/YOUTHSERVICEPHILIPPINES" target="_blank">Youth Service Philippines</a></p></div>
+  </div>
+  <div class="footer-bottom">© 2025 Youth Service Philippines. All rights reserved.</div>
+</footer>
+
+<div id="loginModal" class="modal">
+  <div class="modal-box">
+    <h3>Sign In</h3>
+    <button onclick="login('admin')">Admin</button>
+    <button onclick="login('chapter')">Chapter Head</button>
+    <button onclick="closeLogin()">Close</button>
+  </div>
+</div>
 
 </body>
 </html>

@@ -1,8 +1,20 @@
 /* RESET */
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{height:100%;font-family:"Inter","Segoe UI",sans-serif;background:#f9fafb;color:#1f2937;display:flex;flex-direction:column;}
+html,body{min-height:100%;font-family:"Inter","Segoe UI",sans-serif;background:#f9fafb;color:#1f2937;display:flex;flex-direction:column;}
 a{text-decoration:none;color:inherit}
 img{width:100%;display:block;object-fit:cover}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav a{margin-left:16px;font-size:13px}
+  .hero h1{font-size:36px}
+  .hero p{font-size:16px}
+  .section-title{font-size:24px}
+  .carousel .card{min-width:250px}
+  .stats{grid-template-columns:1fr}
+  .footer-container{grid-template-columns:1fr}
+  .modal-box{width:90%;margin:50px auto}
+}
 
 /* HEADER */
 header{background:#fff;box-shadow:0 4px 20px rgba(0,0,0,0.08);position:sticky;top:0;z-index:100;}
@@ -72,6 +84,21 @@ footer.site-footer{background:#111827;color:#d1d5db;margin-top:auto;font-size:13
 
 /* VOLUNTEER CALENDAR */
 .calendar{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:20px}
-.calendar .event{background:#fff;padding:20px;border-radius:16px;box-shadow:0 12px 30px rgba(0,0,0,0.08)}
-.calendar .event h4{color:#f97316;margin-bottom:6px;font-size:18px;}
-.calendar .event p{font-size:14px;margin-bottom:4px;}
+.calendar .event{background:#fff;padding:20px;border-radius:16px;box-shadow:0 12px 30px rgba(0,0,0,0.08);transition:transform 0.3s,box-shadow 0.3s;border-left:4px solid #f97316}
+.calendar .event:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,0.12)}
+.calendar .event h4{color:#f97316;margin-bottom:10px;font-size:18px;border-bottom:2px solid #f97316;padding-bottom:8px}
+.calendar .event p{font-size:14px;margin-bottom:8px;line-height:1.5}
+.calendar .event a{color:#f97316;font-weight:600}
+
+/* SIMPLE HEADER FOR BACK BUTTON */
+.simple-header{background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.08);padding:12px 24px}
+.simple-header a{color:#f97316;font-weight:600;font-size:16px;display:inline-flex;align-items:center;gap:6px}
+.simple-header a:hover{text-decoration:underline}
+
+/* INPUT STYLES */
+input,textarea{width:100%;padding:12px;margin-bottom:12px;border:1px solid #e5e7eb;border-radius:8px;font-family:inherit;font-size:14px;transition:border-color 0.2s}
+input:focus,textarea:focus{outline:none;border-color:#f97316;box-shadow:0 0 0 3px rgba(249,115,22,0.1)}
+textarea{resize:vertical;min-height:100px}
+
+/* CUSTOM LISTS */
+ul{list-style:none;padding:0;margin:0}
