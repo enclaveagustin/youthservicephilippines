@@ -7,25 +7,14 @@
 
 html, body {
   min-height: 100%;
-  font-family: "Inter", "Segoe UI", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   background: linear-gradient(to bottom, #f9fafb, #f3f4f6);
   color: #1f2937;
   display: flex;
   flex-direction: column;
   line-height: 1.6;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-  transition: color 0.3s ease;
-}
-
-img {
-  width: 100%;
-  display: block;
-  object-fit: cover;
-  background: linear-gradient(135deg, #fee2e2, #fef3c7);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* ===== COLOR VARIABLES ===== */
@@ -36,9 +25,25 @@ img {
   --dark: #1f2937;
   --light-gray: #f9fafb;
   --border-color: #e5e7eb;
-  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.12);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.15);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transition);
+}
+
+img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  background: linear-gradient(135deg, #fee2e2, #fef3c7);
+  transition: transform 0.3s ease;
 }
 
 /* ===== RESPONSIVE BREAKPOINTS ===== */
@@ -128,6 +133,15 @@ header {
 
 .logo img {
   height: 50px;
+  width: 50px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  transition: transform var(--transition);
+}
+
+.logo:hover img {
+  transform: scale(1.05);
+}
   object-fit: contain;
   filter: drop-shadow(0 2px 4px rgba(249, 115, 22, 0.2));
 }
@@ -144,7 +158,7 @@ nav a {
   font-size: 15px;
   position: relative;
   color: var(--dark);
-  transition: color 0.3s ease;
+  transition: color var(--transition);
   padding: 8px 0;
 }
 
@@ -156,7 +170,8 @@ nav a::after {
   width: 0;
   height: 3px;
   background: linear-gradient(90deg, var(--primary), var(--primary-light));
-  transition: width 0.3s ease;
+  transition: width var(--transition);
+  will-change: width;
 }
 
 nav a:hover {
@@ -214,6 +229,7 @@ nav a:hover::after {
   z-index: 1;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   letter-spacing: -1px;
+  animation: slideUp 0.8s ease-out;
 }
 
 .hero p {
@@ -225,6 +241,7 @@ nav a:hover::after {
   position: relative;
   z-index: 1;
   font-weight: 500;
+  animation: slideUp 0.8s ease-out 0.2s backwards;
 }
 
 .hero .btn {
@@ -233,7 +250,19 @@ nav a:hover::after {
   z-index: 1;
   font-size: 16px;
   padding: 14px 28px;
-  box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+  box-shadow: var(--shadow-md);
+  animation: slideUp 0.8s ease-out 0.4s backwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ===== MAIN CONTENT ===== */
@@ -377,39 +406,32 @@ main {
   border-radius: 20px;
   overflow: hidden;
   box-shadow: var(--shadow-md);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow var(--transition), transform var(--transition);
   border: 1px solid rgba(249, 115, 22, 0.08);
   display: flex;
   flex-direction: column;
+  will-change: transform, box-shadow;
 }
 
 .card:hover {
   transform: translateY(-12px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-xl);
   border-color: var(--primary-light);
 }
 
 .card img {
-  height: 220px;
+  height: 240px;
   object-fit: cover;
   position: relative;
   overflow: hidden;
   background: linear-gradient(135deg, #fee2e2, #fef3c7);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+  will-change: transform;
 }
 
-.card img::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
-  opacity: 0;
-  animation: shimmer 2s infinite;
-}
-
-@keyframes shimmer {
-  0% { opacity: 0; }
-  50% { opacity: 1; }
-  100% { opacity: 0; }
+.card:hover img {
+  transform: scale(1.05);
 }
 
 .card .card-content {
@@ -445,21 +467,22 @@ button,
   border-radius: 10px;
   font-weight: 700;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: var(--transition);
   margin-top: 10px;
   font-size: 15px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3);
+  box-shadow: var(--shadow-md);
   border: 2px solid transparent;
   display: inline-block;
+  will-change: transform, box-shadow;
 }
 
 button:hover,
 .btn:hover {
   background: linear-gradient(135deg, var(--primary-dark), #f97316);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4);
+  box-shadow: var(--shadow-lg);
 }
 
 button:active,

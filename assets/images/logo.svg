@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ea580c;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="#fff" filter="url(#shadow)"/>
+  
+  <!-- Main logo shape - hands up -->
+  <g transform="translate(100, 100)">
+    <!-- Left hand -->
+    <path d="M -30 -20 L -25 -40 L -20 -30 L -15 -45 L -10 -32 L -5 -48 L 0 -35 L 5 -50 L 10 -35 L 15 -45 L 20 -30 L 25 -40 L 30 -20 Q 25 -10 15 -5 L -15 -5 Q -25 -10 -30 -20 Z" 
+          fill="url(#logoGrad)" stroke="none"/>
+    
+    <!-- Central circle (heart) -->
+    <circle cx="0" cy="15" r="22" fill="url(#logoGrad)" opacity="0.9"/>
+    
+    <!-- Inner circle -->
+    <circle cx="0" cy="15" r="16" fill="#fff" opacity="0.3"/>
+    
+    <!-- Decorative elements -->
+    <circle cx="-35" cy="-15" r="8" fill="url(#logoGrad)" opacity="0.6"/>
+    <circle cx="35" cy="-15" r="8" fill="url(#logoGrad)" opacity="0.6"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="100" y="165" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#f97316">YSP</text>
+  <text x="100" y="182" font-family="Arial, sans-serif" font-size="9" text-anchor="middle" fill="#666" letter-spacing="1">PHILIPPINES</text>
+</svg>

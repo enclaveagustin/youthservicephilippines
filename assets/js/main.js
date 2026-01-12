@@ -9,13 +9,13 @@ const IMAGE_GRADIENTS = {
   'Disaster Relief': 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
 };
 
-// Image URLs from multiple sources with fallbacks
+// Premium image URLs from Unsplash with optimized parameters
 const getOptimizedImage = (title) => {
   const images = {
-    'Community Outreach': 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop',
-    'Youth Leadership Training': 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop',
-    'Environmental Conservation': 'https://images.unsplash.com/photo-1559027615-cd2628902d4a?w=400&h=300&fit=crop',
-    'Disaster Relief': 'https://images.unsplash.com/photo-1559027615-cd2628902d4a?w=400&h=300&fit=crop',
+    'Community Outreach': 'https://images.unsplash.com/photo-1526526029430-14df7c10edd8?w=500&h=350&fit=crop&q=85',
+    'Youth Leadership Training': 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=350&fit=crop&q=85',
+    'Environmental Conservation': 'https://images.unsplash.com/photo-1559027615-cd2628902d4a?w=500&h=350&fit=crop&q=85',
+    'Disaster Relief': 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=500&h=350&fit=crop&q=85',
   };
   return images[title] || generatePlaceholderImage(title);
 };
@@ -375,7 +375,12 @@ function renderPrograms(container = 'programList') {
   
   programsContainer.innerHTML = data.programs.map(program => `
     <div class="card">
-      <img src="${program.image}" alt="${program.title}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22200%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22300%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-family=%22Arial%22 font-size=%2216%22 fill=%22%23999%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22%3EImage not available%3C/text%3E%3C/svg%3E'">
+      <img 
+        src="${program.image}" 
+        alt="${program.title}" 
+        loading="lazy"
+        decoding="async"
+        onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22240%22%3E%3Cdefs%3E%3ClinearGradient id=%22grad%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%22100%25%22%3E%3Cstop offset=%220%25%22 style=%22stop-color:%23f97316;stop-opacity:1%22 /%3E%3Cstop offset=%22100%25%22 style=%22stop-color:%23fed7aa;stop-opacity:1%22 /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill=%22url(%23grad)%22 width=%22300%22 height=%22240%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-family=%22Arial%22 font-size=%2218%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22%3E${program.title}%3C/text%3E%3C/svg%3E'">
       <div class="card-content">
         <h3>${program.title}</h3>
         <p>${program.description}</p>
